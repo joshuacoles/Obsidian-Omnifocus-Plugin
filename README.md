@@ -8,3 +8,7 @@ An Omnifocus plugin for linking to Obsidian notes. Supports,
 ## Assembly
 
 Run `./build.sh` to assemble the plugin. The plugin will be assembled in the `OmniObsidian.omnifocusjs` package.
+
+## Acknowledgements
+
+- Inspired by the work of Ben Hughes with https://github.com/benhughes/OmniToggl
