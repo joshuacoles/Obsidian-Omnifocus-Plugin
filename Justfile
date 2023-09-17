@@ -1,7 +1,10 @@
 build:
     rm -rf OmniObsidian.omnifocusjs
     mkdir OmniObsidian.omnifocusjs
+
+    tsc
     cp -r Resources OmniObsidian.omnifocusjs/
+    cp -r dist/* OmniObsidian.omnifocusjs/Resources/
     cp manifest.json OmniObsidian.omnifocusjs/
 
 install: build
