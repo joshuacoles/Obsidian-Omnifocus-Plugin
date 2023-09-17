@@ -8,7 +8,7 @@
 
         if (!projectJoinery) {
             const projectLink = `omnifocus:///task/${encodeURIComponent(project.id.primaryKey)}`;
-            new Alert("Project file not found", "We couldn't find a project file in Obsidian associated with this project, double check that the file exits and has the correct omnifocus project URL in its properties").show()
+            await new Alert("Project file not found", "We couldn't find a project file in Obsidian associated with this project, double check that the file exits and has the correct omnifocus project URL in its properties").show()
             console.error("Project file not found:");
             console.error(projectLink);
             console.error("In dataset:");
