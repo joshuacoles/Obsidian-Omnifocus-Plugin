@@ -1,0 +1,22 @@
+{
+  "defaultLocale": "en",
+  "author": "Joshua Coles",
+  "identifier": "me.joshuacoles.omnifocus-obsidan",
+  "version": "1.0.0",
+  "description": "A collection of actions for linking obsidian notes to OmniFocus projects",
+  "actions": [
+    {
+      "image": "cup.and.saucer.fill",
+      "identifier": "reviewProject"
+    },
+    {
+      "image": "newspaper.fill",
+      "identifier": "openProject"
+    }
+  ],
+  "libraries": [
+    {
+      "identifier": "obsidian"
+    }
+  ]
+}
