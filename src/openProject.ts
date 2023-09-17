@@ -5,9 +5,12 @@
         selection: Selection,
     ) {
         const obsidian = this.obsidian;
+        console.log("Triggered openProject action");
 
         const project = selection.projects[0];
         const projectJoinery = await obsidian.getJoinery(project.id.primaryKey);
+
+        console.log(`Found projectJoinery: ${JSON.stringify(projectJoinery)}.`);
 
         if (!projectJoinery) {
             const projectLink = `omnifocus:///task/${encodeURIComponent(project.id.primaryKey)}`;

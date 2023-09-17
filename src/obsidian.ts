@@ -32,7 +32,7 @@ interface ObsidianLibrary extends PlugIn.Library {
         console.log(`Finding joinery for ${projectId}`);
         const request = new URL.FetchRequest();
         request.method = 'GET';
-        request.url = URL.fromString(`http://localhost:9002/joinery/projects`);
+        request.url = URL.fromString(`http://100.113.78.9:9002/joinery/projects`);
         const response = await request.fetch();
 
         if (response.statusCode !== 200) {
