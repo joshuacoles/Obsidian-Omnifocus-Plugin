@@ -7,7 +7,7 @@ An Omnifocus plugin for linking to Obsidian notes. Supports,
 
 ## Assembly
 
-Run `./build.sh` to assemble the plugin. The plugin will be assembled in the `OmniObsidian.omnifocusjs` package.
+Run `just build` to assemble the plugin, `just install` to add it the required directory. The plugin will be assembled in the `OmniObsidian.omnifocusjs` package.
 
 ## Acknowledgements
 
