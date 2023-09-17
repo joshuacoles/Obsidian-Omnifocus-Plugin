@@ -16,7 +16,7 @@
 
 declare class Alert {
     constructor (title: string, message: string);
-    show(callback: Function | null): Promise<number>;
+    show(callback?: Function | null): Promise<number>;
     addOption(string: string);
 }
 

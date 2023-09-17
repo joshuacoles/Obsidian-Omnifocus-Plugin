@@ -1,4 +1,3 @@
-/* eslint-disable no-bitwise, no-plusplus */
 function formatDate(date) {
     const year = date.getFullYear();
     const month = String(date.getMonth() + 1).padStart(2, '0');
@@ -6,12 +5,30 @@ function formatDate(date) {
     return `${year}-${month}-${day}`;
 }
 
+interface JoineryProject {
+    filePath: string
+    togglProjectId?: string | null
+    timingProjectId?: string | null
+    omnifocusProjectLink?: string | null
+}
+
+interface ObsidianLibrary extends PlugIn.Library {
+    getJoinery(): Promise<JoineryProject[]>;
+    getJoinery(projectId: string): Promise<JoineryProject | undefined>;
+
+    dailyNoteLink(date: Date): string;
+
+    openObsidianNote(obsidianFilePath: string): void;
+
+    appendToObsidianNote(obsidianFilePath: string, content: string): void;
+}
+
 (() => {
-    const dependencyLibrary = new PlugIn.Library(new Version('1.0'));
+    const dependencyLibrary: ObsidianLibrary = new PlugIn.Library(new Version('1.0')) as ObsidianLibrary;
 
     const vault = encodeURIComponent("My Life");
 
-    dependencyLibrary.getJoinery = async function getJoinery(projectId) {
+    dependencyLibrary.getJoinery = async function getJoinery(projectId?: string) {
         console.log(`Finding joinery for ${projectId}`);
         const request = new URL.FetchRequest();
         request.method = 'GET';
@@ -19,7 +36,7 @@ function formatDate(date) {
         const response = await request.fetch();
 
         if (response.statusCode !== 200) {
-            throw buildErrorObject(response);
+            throw response;
         }
 
         console.log(response.bodyString)
