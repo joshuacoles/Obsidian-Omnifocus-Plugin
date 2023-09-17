@@ -6,12 +6,12 @@
   "description": "A collection of actions for linking obsidian notes to OmniFocus projects",
   "actions": [
     {
-      "image": "cup.and.saucer.fill",
-      "identifier": "reviewProject"
-    },
-    {
       "image": "newspaper.fill",
       "identifier": "openProject"
+    },
+    {
+      "image": "cup.and.saucer.fill",
+      "identifier": "reviewProject"
     }
   ],
   "libraries": [
