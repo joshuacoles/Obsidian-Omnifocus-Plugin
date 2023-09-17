@@ -11,7 +11,7 @@ function formatDate(date) {
         selection,
     ) {
         const project = selection.projects[0];
-        const projectJoinery = await this.common.getJoinery(project.id.primaryKey);
+        const projectJoinery = await this.obsidian.getJoinery(project.id.primaryKey);
 
         if (!projectJoinery) {
             const projectLink = `omnifocus:///task/${encodeURIComponent(project.id.primaryKey)}`;
@@ -24,10 +24,10 @@ function formatDate(date) {
         }
 
         const obsidianFilePath = projectJoinery.filePath;
-        const appendContent = `\n\n## Review [[${formatDate(new Date())}]]\n\n`;
+        const appendContent = `\n\n## Review ${this.obsidian.dailyNoteLink(new Date())}\n\n`;
 
-        await this.common.appendToObsidianNote(obsidianFilePath, appendContent);
-        this.common.openObsidianNote(obsidianFilePath);
+        await this.obsidian.appendToObsidianNote(obsidianFilePath, appendContent);
+        this.obsidian.openObsidianNote(obsidianFilePath);
     });
 
     action.validate = function startTogglTimerValidate(selection) {

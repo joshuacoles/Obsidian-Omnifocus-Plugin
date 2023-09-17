@@ -4,7 +4,7 @@
         selection,
     ) {
         const project = selection.projects[0];
-        const projectJoinery = await this.common.getJoinery(project.id.primaryKey);
+        const projectJoinery = await this.obsidian.getJoinery(project.id.primaryKey);
 
         if (!projectJoinery) {
             const projectLink = `omnifocus:///task/${encodeURIComponent(project.id.primaryKey)}`;
@@ -17,7 +17,7 @@
         }
 
         const obsidianFilePath = projectJoinery.filePath;
-        this.common.openObsidianNote(obsidianFilePath);
+        this.obsidian.openObsidianNote(obsidianFilePath);
     });
 
     action.validate = function startTogglTimerValidate(selection) {
